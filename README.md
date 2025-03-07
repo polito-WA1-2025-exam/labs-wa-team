@@ -1,12 +1,9 @@
-# Group "GROUP NAME"
+# Group "LABS-WA-TEAM"
 
 ## Members
-- s123456 LASTNAME FIRSTNAME
-- s123456 LASTNAME FIRSTNAME
-- s123456 LASTNAME FIRSTNAME
+- s333959 LA MACCHIA FEDERICO
 
-# Exercise "NAME OF EXERCISE"
+# Exercise "GUESS WHO?"
 
 # Lab Journal
-
 (you may update this file to keep track of the progress of your group work, throughout the weeks)
