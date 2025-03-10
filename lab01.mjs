@@ -100,16 +100,14 @@ function randomSelector(array, numOfElements) {
 /**
  * @constructor Constructs a `Pokémon` object
  * @param {String} name Unique name of the `Pokémon`
- * @param {Number} id Unique ID of the `Pokémon` 
  * @param {String} gender Gender of the `Pokémon`(male, female, male/female, unknown)
  * @param {Array<String>} type List of types of the `Pokémon` (ex: fire, water, etc.)
  * @param {Array<String>} weakness List of weaknesses of the `Pokémon` (ex: water, electric, etc.)
  * @param {Array<String>} evolutions Evolution list of the `Pokémon`
  * @return {Pokémon} `Pokémon` object
  */
-function Pokémon(name, id, gender, type, weakness, evolutions) {
+function Pokémon(name, gender, type, weakness, evolutions) {
     this.name = name;
-    this.id = id;
     this.gender = gender;
     this.type = type;
     this.weakness = weakness;
@@ -120,22 +118,60 @@ function Pokémon(name, id, gender, type, weakness, evolutions) {
      * @returns string representation of `Pokémon` object 
      */
     this.toString = () => {
-        return  `\tName: ${this.name}\n\tID: #${String(this.id).padStart(4, "0")}\n\tGender: ${this.gender}\n\t` + 
-                `Type: ${this.type.toString()}\n\tWeakness: ${this.weakness}\n\t` +
+        return  `\tName: ${this.name}\n\tGender: ${this.gender}\n\tType: ${this.type.toString()}\n\tWeakness: ${this.weakness}\n\t` +
                 `Evolutions: ${this.evolutions.length !== 0 ? this.evolutions : "This Pokémon does not evolve"}`;
     }
 }
 
 // TEST CODE
-const testPokémon1 = new Pokémon("Charizard", 6, "Male/Female", ["Fire", "Flying"], ["Water", "Electric", "Rock"], ["Charmander", "Charmeleon", "Charizard"]);
-// console.log(testPokémon1.toString());
-const testPokémon2 = new Pokémon("Squirtle", 7, "Male/Female", ["Water"], ["Grass", "Electric"], ["Squirtle", "Wartortle", "Blastoise"]);
-// console.log("\n" + testPokémon2.toString());
-const testPokémon3 = new Pokémon("Ivysaur", 2, "Male/Female", ["Grass", "Poison"], ["Fire", "Ice", "Flying", "Psychic"], ["Bulbasaur", "Ivysaur", "Venusaur"]);
-// console.log("\n" + testPokémon3);
+const testPokémon1 = new Pokémon("Charizard", "Male/Female", ["Fire", "Flying"], ["Water", "Electric", "Rock"], ["Charmander", "Charmeleon", "Charizard"]);
+const testPokémon2 = new Pokémon("Squirtle", "Male/Female", ["Water"], ["Grass", "Electric"], ["Squirtle", "Wartortle", "Blastoise"]);
+const testPokémon3 = new Pokémon("Ivysaur", "Male/Female", ["Grass", "Poison"], ["Fire", "Ice", "Flying", "Psychic"], ["Bulbasaur", "Ivysaur", "Venusaur"]);
+
 const testPokémons = [testPokémon1, testPokémon2, testPokémon3];
-testPokémons.push(new Pokémon("Darkrai", 491, "Unknown", ["Dark"], ["Fighting, Bug, Fairy"], null));
-testPokémons.push(new Pokémon("Pikachu", 25, "Male/Female", ["Electric"], ["Ground"], ["Pihcu", "Pikachu", "Raichu"]));
+testPokémons.push(new Pokémon("Darkrai", "Unknown", ["Dark"], ["Fighting, Bug, Fairy"], null));
+testPokémons.push(new Pokémon("Pikachu", "Male/Female", ["Electric"], ["Ground"], ["Pihcu", "Pikachu", "Raichu"]));
+testPokémons.push(new Pokémon("Eevee", "Male/Female", ["Normal"], ["Fighting"], ["Eevee", "Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]));
+testPokémons.push(new Pokémon("Umbreon", "Male/Female", ["Dark"], ["Bug", "Fairy", "Fighting"], ["Eevee", "Umbreon"]));
+testPokémons.push(new Pokémon("Deoxys", "Genderless", ["Psychic"], ["Bug", "Dark", "Ghost"], null));
+testPokémons.push(new Pokémon("Dialga", "Genderless", ["Steel", "Dragon"], ["Fighting", "Ground"], null));
+testPokémons.push(new Pokémon("Rayquaza", "Genderless", ["Dragon", "Flying"], ["Ice", "Dragon", "Fairy", "Rock"], null));
+testPokémons.push(new Pokémon("Palkia", "Genderless", ["Water", "Dragon"], ["Dragon", "Fairy"], null));
+testPokémons.push(new Pokémon("Giratina", "Genderless", ["Ghost", "Dragon"], ["Dark", "Dragon", "Fairy", "Ghost", "Ice"], null));
+testPokémons.push(new Pokémon("Infernape", "Male/Female", ["Fire", "Fighting"], ["Flying", "Ground", "Psychic", "Water"], ["Chimchar", "Monferno", "Infernape"]));
+testPokémons.push(new Pokémon("Kadabra", "Male/Female", ["Psychic"], ["Bug", "Dark", "Ghost"], ["Abra", "Kadabra", "Alakazam"]));
+testPokémons.push(new Pokémon("Snorlax", "Male/Female", ["Normal"], ["Fighting"], ["Munchlax", "Snorlax"]));
+testPokémons.push(new Pokémon("Gyarados", "Male/Female", ["Water", "Flying"], ["Electric", "Rock"], ["Magikarp", "Gyarados"]));
+testPokémons.push(new Pokémon("Luxray", "Male/Female", ["Electric"], ["Ground"], ["Shinx", "Luxio", "Luxray"]));
+testPokémons.push(new Pokémon("Vaporeon", "Male/Female", ["Water"], ["Electric", "Grass"], ["Eevee", "Vaporeon"]));
+testPokémons.push(new Pokémon("Seviper", "Male/Female", ["Poison"], ["Ground", "Psychic"], null));
+testPokémons.push(new Pokémon("Garchomp", "Male/Female", ["Dragon", "Ground"], ["Dragon", "Fairy", "Ice"], ["Gible", "Gabite", "Garchomp"]));
+testPokémons.push(new Pokémon("Machop", "Male/Female", ["Fighting"], ["Fairy", "Flying", "Psychic"], ["Machop", "Machoke", "Machamp"]));
+testPokémons.push(new Pokémon("Machoke", "Male/Female", ["Fighting"], ["Fairy", "Flying", "Psychic"], ["Machop", "Machoke", "Machamp"]));
+testPokémons.push(new Pokémon("Machamp", "Male/Female", ["Fighting"], ["Fairy", "Flying", "Psychic"], ["Machop", "Machoke", "Machamp"]));
+testPokémons.push(new Pokémon("Lucario", "Male/Female", ["Fighting", "Steel"], ["Fighting", "Fire", "Ground"], ["Riolu", "Lucario"]));
+testPokémons.push(new Pokémon("Articuno", "Genderless", ["Ice", "Flying"], ["Electric", "Fire", "Rock", "Steel"], null));
+testPokémons.push(new Pokémon("Abra", "Male/Female", ["Psychic"], ["Bug", "Dark", "Ghost"], ["Abra", "Kadabra", "Alakazam"]));
+testPokémons.push(new Pokémon("Alakazam", "Male/Female", ["Psychic"], ["Bug", "Dark", "Ghost"], ["Abra", "Kadabra", "Alakazam"]));
+testPokémons.push(new Pokémon("Onix", "Male/Female", ["Rock", "Ground"], ["Fighting", "Grass", "Ground", "Ice", "Steel", "Water"], ["Onix", "Steelix"]));
+testPokémons.push(new Pokémon("Steelix", "Male/Female", ["Steel", "Ground"], ["Fighting", "Fire", "Ground", "Water"], ["Onix", "Steelix"]));
+testPokémons.push(new Pokémon("Latios", "Genderless", ["Dragon", "Psychic"], ["Bug", "Dark", "Dragon", "Fairy", "Ghost", "Ice"], null));
+testPokémons.push(new Pokémon("Latias", "Genderless", ["Dragon", "Psychic"], ["Bug", "Dark", "Dragon", "Fairy", "Ghost", "Ice"], null));
+testPokémons.push(new Pokémon("Zapdos", "Genderless", ["Electric", "Flying"], ["Ice", "Rock"], null));
+testPokémons.push(new Pokémon("Mewtwo", "Genderless", ["Psychic"], ["Bug", "Dark", "Ghost"], null));
+testPokémons.push(new Pokémon("Staraptor", "Male/Female", ["Normal", "Flying"], ["Electric", "Ice", "Rock"], ["Starly", "Staravia", "Staraptor"]));
+testPokémons.push(new Pokémon("Scyther", "Male/Female", ["Bug", "Flying"], ["Electric", "Fire", "Flying", "Ice", "Rock"], ["Scyther", "Scizor", "Kleavor"]));
+testPokémons.push(new Pokémon("Kricketune", "Male/Female", ["Bug"], ["Fire", "Flying", "Rock"], ["Kricketot", "Kricketune"]));
+testPokémons.push(new Pokémon("Duskull", "Male/Female", ["Ghost"], ["Dark", "Ghost"], ["Duskull", "Dusclops", "Dusknoir"]));
+testPokémons.push(new Pokémon("Shuppet", "Male/Female", ["Ghost"], ["Dark", "Ghost"], ["Shuppet", "Banette"]));
+testPokémons.push(new Pokémon("Regigigas", "Genderless", ["Normal"], ["Fighting"], null));
+testPokémons.push(new Pokémon("Lugia", "Genderless", ["Psychic", "Flying"], ["Dark", "Electric", "Ghost", "Ice", "Rock"], null));
+testPokémons.push(new Pokémon("Suicune", "Genderless", ["Water"], ["Electric", "Grass"], null));
+testPokémons.push(new Pokémon("Treecko", "Male/Female", ["Grass"], ["Bug", "Fire", "Flying", "Ice", "Poison"], ["Treecko", "Grovyle", "Sceptile"]));
+testPokémons.push(new Pokémon("Grovyle", "Male/Female", ["Grass"], ["Bug", "Fire", "Flying", "Ice", "Poison"], ["Treecko", "Grovyle", "Sceptile"]));
+testPokémons.push(new Pokémon("Sceptile", "Male/Female", ["Grass"], ["Bug", "Fire", "Flying", "Ice", "Poison"], ["Treecko", "Grovyle", "Sceptile"]));
+testPokémons.push(new Pokémon("Leafeon", "Male/Female", ["Grass"], ["Bug", "Fire", "Flying", "Ice", "Poison"], ["Eevee", "Leafeon"]));
+testPokémons.push(new Pokémon("Chikorita", "Male/Female", ["Grass"], ["Bug", "Fire", "Flying", "Ice", "Poison"], ["Chikorita", "Bayleef", "Meganium"]));
 
 /**
  * @constructor Constructs a `Catalog` object implementing Pokémon's domain
@@ -155,11 +191,11 @@ function Catalog(pokémons) {
     }
 
     /**
-     * Remove from the `Catalog` the Pokémon with the given ID
-     * @param {Number} pokémonId  ID of the Pokémon to be removed 
+     * Remove from the `Catalog` the Pokémon with the given name
+     * @param {Number} name Name of the Pokémon to be removed 
      */
-    this.remove = (pokémonId) => {
-        this.pokémons = this.pokémons.filter(p => p.id != pokémonId);
+    this.remove = (name) => {
+        this.pokémons = this.pokémons.filter(p => p.name !== name);
     }
 
     /**
@@ -182,11 +218,12 @@ function Catalog(pokémons) {
 
 // TEST CODE
 const testCatalog = new Catalog(testPokémons);
-// const testCatalog = new Catalog(testPokémon1, testPokémon2);
+// testCatalog.print();
 // testCatalog.add(testPokémon3);
 // testCatalog.add(testPokémon1);
-testCatalog.print();
-// testCatalog.remove(testPokémon2.id);
+// testCatalog.add(testPokémon1);
+// testCatalog.print();
+// testCatalog.remove(testPokémon2.name);
 // testCatalog.print();
 
 /**
@@ -282,9 +319,8 @@ function Match(id, catalog, player, date, difficulty, pokémons, guesses) {
      */
     this.toString = () => {
         return  `\n************************************************** MATCH'S INFO ***************************************************\n` +
-                `ID: ${this.id}\nPlayer:\n${this.player.toString().split("\n").map(line => "\t" + line).join("\n")}` + 
-                `Date: ${(this.date.isValid()) ? this.date.format('LL') : "null"}\nDifficulty: ${this.difficulty}\n` +                
-                `Secret Pokémon:\n${this.secretPokémon.toString()}\nSelected Pokémons:\n${this.pokémons.toString()}\n` +
+                `ID: ${this.id}\nPlayer:\n${this.player.toString()}Date: ${(this.date.isValid()) ? this.date.format('LL') : "null"}\n` +
+                `Difficulty: ${this.difficulty}\nSecret Pokémon:\n${this.secretPokémon.toString()}\nSelected Pokémons:\n${this.pokémons.toString()}\n` +
                 `Guesses: ${this.guesses ? "{ " + this.guesses.map(g => g.id) + " }" : this.guesses}\nStatus: ${this.isTerminated}\n` +
                 `Score: ${this.score}` +
                 `\n*******************************************************************************************************************\n`;
@@ -301,16 +337,18 @@ function Match(id, catalog, player, date, difficulty, pokémons, guesses) {
 }
 
 // TEST CODE
-// const match1 = new Match(1, c1, player1, dayjs(), 1, c1, p2, null, true, 1);
-// match1.print();
+const match1 = new Match(1, testCatalog, testPlayer1, dayjs(), 1, null, null);
+match1.print();
 
-// 5. Define a constructor for Guess
+// TODO: completed the constructor for the class Guess
 // Each match consists of a set of guesses. In each guess, the player will select one 
 // property from a list, and select one possible value of that property out of the 
 // possible value options. Upon confirming this selection, the application will tell 
 // the player whether the guess was correct or not (i.e., whether the secret item’s 
 // property value matches the player’s guess). The application will then ‘disable’ all 
 // the items on-screen that are incompatible with the guess.
+
+// TODO: maybe I should comput the set of properties and values based on the content of the Catalog object used for the Match 
 
 /**
  * @constructor Constructs a `Guess` object
